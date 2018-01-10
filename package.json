@@ -1,0 +1,33 @@
+{
+  "name": "laravel-mix-purgecss",
+  "version": "0.1.0",
+  "description": "Purgecss wrapper for Laravel Mix",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spatie/laravel-mix-purgecss.git"
+  },
+  "keywords": [
+    "spatie"
+  ],
+  "author": "Sebastian De Deyne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spatie/laravel-mix-purgecss/issues"
+  },
+  "homepage": "https://github.com/spatie/laravel-mix-purgecss",
+  "scripts": {
+    "prettier": "prettier --write \"**/*.js\""
+  },
+  "dependencies": {
+    "glob-all": "^3.0.0",
+    "lodash.omit": "^4.0.0",
+    "purgecss-webpack-plugin": "^0.18.0"
+  },
+  "devDependencies": {
+    "laravel-mix": "^1.7.0",
+    "prettier": "^1.10.1"
+  },
+  "peerDependencies": {
+    "laravel-mix": "^1.7.0"
+  }
+}
