@@ -6,7 +6,12 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const defaults = {
     enabled: mix.inProduction(),
-    globs: [],
+    globs: [
+        mix.paths.root('app/**/*.php'),
+        mix.paths.root('resources/views/**/*.blade.php'),
+        mix.paths.root('resources/assets/js/**/*.vue'),
+        mix.paths.root('resources/assets/js/**/*.js'),
+    ],
     extensions: ['html', 'js', 'php', 'vue'],
 };
 
