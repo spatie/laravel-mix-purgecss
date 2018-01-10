@@ -1,11 +1,11 @@
+const path = require('path');
 const glob = require('glob-all');
 const mix = require('laravel-mix');
 const omit = require('lodash.omit');
-const Extractor = require('./src/Extractor');
+const Extractor = require('./Extractor');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const defaults = {
-    enabled: mix.inProduction(),
     globs: [
         path.resolve(__dirname, '../../../app/**/*.php'),
         path.resolve(__dirname, '../../../resources/views/**/*.blade.php'),
@@ -16,13 +16,15 @@ const defaults = {
 };
 
 function createPlugin(options) {
-    options = { ...defaults, ...options };
-
     return new PurgecssPlugin({
-        paths: glob.sync(options.globs),
+        paths: () => glob.sync(options.globs),
         extractors: [
             {
-                extractor: Extractor,
+                extractor: class {
+                    static extract(content) {
+                        return content.match(/[A-z0-9-:\/]+/g) || [];
+                    }
+                },
                 extensions: options.extensions,
             },
         ],
@@ -31,15 +33,7 @@ function createPlugin(options) {
 }
 
 function withoutCustomOptions(options) {
-    return omit(options, Object.keys(defaults));
+    return omit(options, ['globs', 'extensions']);
 }
 
-mix.purgeCss = function(options) {
-    if (options.enabled) {
-        mix.webpackConfig({
-            plugins: [createPlugin({ ...defaults, ...options })],
-        });
-    }
-
-    return mix;
-};
+module.exports = (options = {}) => createPlugin({ ...defaults, ...options });
