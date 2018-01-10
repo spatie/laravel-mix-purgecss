@@ -2,7 +2,6 @@ const path = require('path');
 const glob = require('glob-all');
 const mix = require('laravel-mix');
 const omit = require('lodash.omit');
-const Extractor = require('./Extractor');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const defaults = {
