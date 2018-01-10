@@ -2,6 +2,7 @@
   "name": "laravel-mix-purgecss",
   "version": "0.1.0",
   "description": "Purgecss wrapper for Laravel Mix",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/spatie/laravel-mix-purgecss.git"
