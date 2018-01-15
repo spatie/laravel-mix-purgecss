@@ -48,14 +48,12 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .purgeCss();
 ```
 
-Custom options can be passed when installing or when calling Purgecss, both have the same outcome.
+Custom options can be passed when when calling Purgecss if necessary.
 
 ```js
-require('laravel-mix-purgecss')({ /* My options */ });
-
-// ...
-
-mix.purgeCss({ /* My options */ });
+mix.js('resources/assets/js/app.js', 'public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css')
+   .purgeCss({ /* My options */ });
 ```
 
 ## Configuration
