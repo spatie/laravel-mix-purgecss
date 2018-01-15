@@ -4,25 +4,63 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/laravel-mix-purgecss/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-mix-purgecss)
 
-...
+Purgecss is pretty easy to set up, but it needs some boilerplate setup. This package adds a `purgeCss` method to Laravel Mix, which installs Purgecss for you with a set of sensible defaults. Zero configuration for your average Laravel project!
+
+```js
+let mix = require('laravel-mix');
+require('laravel-mix-purgecss')();
+
+// ...
+
+mix.js('resources/assets/js/app.js', 'public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css')
+   .purgeCss();
+```
+
+The Purgecss config is inspired by [Jonathan Reinink's config](https://twitter.com/reinink/status/932599675764518913) for Tailwind CSS.
 
 ## Installation
 
-You can install the package via composer:
+You can install the package with yarn or npm:
 
 ```bash
-composer require spatie/laravel-mix-purgecss
+yarn add laravel-mix-purgecss
+```
+
+```bash
+npm install laravel-mix-purgecss
+```
+
+Then install the extension by requiring the module in your Mix configuration.
+
+```js
+let mix = require('laravel-mix');
+require('laravel-mix-purgecss')();
+
+// ...
+```
+
+Purgecss can then be enabled by calling `.purgeCss()` in your Mix chain.
+
+```js
+mix.js('resources/assets/js/app.js', 'public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css')
+   .purgeCss();
+```
+
+Custom options can be passed when installing or when calling Purgecss, both have the same outcome.
+
+```js
+require('laravel-mix-purgecss')({ /* My options */ });
+
+// ...
+
+mix.purgeCss({ /* My options */ });
 ```
 
 ## Usage
 
 ...
-
-### Testing
-
-```
-yarn test
-```
 
 ### Changelog
 
