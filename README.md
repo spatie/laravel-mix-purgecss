@@ -66,7 +66,7 @@ For all configuration options, refer to the [https://github.com/FullHuman/purgec
 |--------------|---------|-----|
 | `enabled`    | `true` in production | Determines whether css should be purged or not |
 | `globs`      | Matches all files in `app/` and `resources/` | Determines which files should be scanned for selectors |
-| `extensions` | `['html', 'js', 'jsx', 'ts', 'tsx', 'php', 'vue']` | Determines which file types should be scanned for selectors |
+| `extensions` | html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors |
 
 Note that if you override `globs` or `extensions`, the defaults will be lost!
 
