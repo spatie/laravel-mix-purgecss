@@ -73,28 +73,28 @@ For all configuration options, refer to the [https://github.com/FullHuman/purgec
 Note that if you override `globs` or `extensions`, the defaults will be lost!
 
 <details>
-    <summary>
-        Example custom configuration
-    </summary>
+<summary>
+    Example custom configuration
+</summary>
 
-    ```js
-    let mix = require('laravel-mix');
-    let purceCss = require('laravel-mix-purgecss');
+```js
+let mix = require('laravel-mix');
+let purceCss = require('laravel-mix-purgecss');
 
-    mix.js('resources/assets/js/app.js', 'public/js')
-       .sass('resources/assets/sass/app.scss', 'public/css')
-       .purgeCss({
-           enabled: true,
-           globs: [
-               path.resolve(__dirname, './app/**/*'),
-               path.resolve(__dirname, './resources/**/*'),
-               path.join(__dirname, 'node_modules/simplemde/**/*.js'),
-           ],
-           extensions: ['html', 'js', 'php', 'vue'],
-           // Other options are passed through to Purgecss
-           whitelistPatterns: [/language/, /hljs/],
-       });
-    ```
+mix.js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .purgeCss({
+        enabled: true,
+        globs: [
+            path.resolve(__dirname, './app/**/*'),
+            path.resolve(__dirname, './resources/**/*'),
+            path.join(__dirname, 'node_modules/simplemde/**/*.js'),
+        ],
+        extensions: ['html', 'js', 'php', 'vue'],
+        // Other options are passed through to Purgecss
+        whitelistPatterns: [/language/, /hljs/],
+    });
+```
 </details>
 
 ### Changelog
