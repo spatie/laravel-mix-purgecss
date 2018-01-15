@@ -1,17 +1,16 @@
 const path = require('path');
 const glob = require('glob-all');
 const mix = require('laravel-mix');
-const omit = require('lodash.omit');
+const omit = require('lodash/omit');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const defaults = {
+    enabled: mix.inProduction(),
     globs: [
-        path.resolve(__dirname, '../../../app/**/*.php'),
-        path.resolve(__dirname, '../../../resources/views/**/*.blade.php'),
-        path.resolve(__dirname, '../../../resources/assets/js/**/*.vue'),
-        path.resolve(__dirname, '../../../resources/assets/js/**/*.js'),
+        path.resolve(__dirname, '../../../app/**/*'),
+        path.resolve(__dirname, '../../../resources/**/*'),
     ],
-    extensions: ['html', 'js', 'php', 'vue'],
+    extensions: ['html', 'js', 'jsx', 'ts', 'tsx', 'php', 'vue'],
 };
 
 function createPlugin(options) {
@@ -32,7 +31,17 @@ function createPlugin(options) {
 }
 
 function withoutCustomOptions(options) {
-    return omit(options, ['globs', 'extensions']);
+    return omit(options, ['enabled', 'globs', 'extensions']);
 }
 
-module.exports = (options = {}) => createPlugin({ ...defaults, ...options });
+mix.purgeCss = (options = {}) => {
+    options = { ...defaults, ...options };
+
+    if (options.enabled) {
+        mix.webpackConfig({
+            plugins: [createPlugin(options)],
+        });
+    }
+};
+
+module.exports.defaults = defaults;
