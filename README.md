@@ -62,7 +62,7 @@ The default configuration should be good enough for an average Laravel project. 
 
 For all configuration options, refer to the [https://github.com/FullHuman/purgecss](purgecss) and [https://github.com/FullHuman/purgecss-webpack-plugin](purgecss-webpack-plugin) docs. This Mix extension adds three more configuration options for your convenience.
 
-| Option       | Default |  |
+| Option       | Default | Description |
 |--------------|---------|-----|
 | `enabled`    | `true` in production | Determines whether css should be purged or not |
 | `globs`      | Matches all files in `app/` and `resources/` | Determines which files should be scanned for selectors |
