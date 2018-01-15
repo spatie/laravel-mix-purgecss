@@ -4,7 +4,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/laravel-mix-purgecss/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-mix-purgecss)
 
-Purgecss is pretty easy to set up, but it needs some boilerplate setup. This package adds a `purgeCss` method to Laravel Mix, which installs Purgecss for you with a set of sensible defaults. Zero configuration for your average Laravel project!
+[Purgecss](https://www.purgecss.com/) doesn't require too much work to set up, but there's some boilerplate involved. This package adds a `purgeCss` method to Laravel Mix, which installs Purgecss for you with a set of sensible defaults. Zero configuration for your average Laravel project!
 
 ```js
 let mix = require('laravel-mix');
@@ -58,9 +58,44 @@ require('laravel-mix-purgecss')({ /* My options */ });
 mix.purgeCss({ /* My options */ });
 ```
 
-## Usage
+## Configuration
 
-...
+The default configuration should be good enough for an average Laravel project. In short, all html, js, php & vue files in the app and resources folders will be scanned for selectors. Purgecss is only enabled in production.
+
+For all configuration options, refer to the [https://github.com/FullHuman/purgecss](purgecss) and [https://github.com/FullHuman/purgecss-webpack-plugin](purgecss-webpack-plugin) docs. This Mix extension adds three more configuration options for your convenience.
+
+| Option       | Default |  |
+|--------------|---------|-----|
+| `enabled`    | `true` in production | Determines whether css should be purged or not |
+| `globs`      | Matches all files in `app/` and `resources/` | Determines which files should be scanned for selectors |
+| `extensions` | `['html', 'js', 'jsx', 'ts', 'tsx', 'php', 'vue']` | Determines which file types should be scanned for selectors |
+
+Note that if you override `globs` or `extensions`, the defaults will be lost!
+
+<details>
+    <summary>
+        Example custom configuration
+    </summary>
+
+    ```js
+    let mix = require('laravel-mix');
+    let purceCss = require('laravel-mix-purgecss');
+
+    mix.js('resources/assets/js/app.js', 'public/js')
+       .sass('resources/assets/sass/app.scss', 'public/css')
+       .purgeCss({
+           enabled: true,
+           globs: [
+               path.resolve(__dirname, './app/**/*'),
+               path.resolve(__dirname, './resources/**/*'),
+               path.join(__dirname, 'node_modules/simplemde/**/*.js'),
+           ],
+           extensions: ['html', 'js', 'php', 'vue'],
+           // Other options are passed through to Purgecss
+           whitelistPatterns: [/language/, /hljs/],
+       });
+    ```
+</details>
 
 ### Changelog
 
