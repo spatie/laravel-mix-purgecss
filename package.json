@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-purgecss",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Purgecss wrapper for Laravel Mix",
   "main": "src/index.js",
   "repository": {
@@ -29,6 +29,6 @@
     "prettier": "^1.10.1"
   },
   "peerDependencies": {
-    "laravel-mix": "^1.7.0"
+    "laravel-mix": "^2.0.0"
   }
 }
