@@ -56,7 +56,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .purgeCss({ /* My options */ });
 ```
 
-## Configuration
+## Usage
 
 The default configuration should be good enough for an average Laravel project. In short, all html, js, php & vue files in the app and resources folders will be scanned for selectors. Purgecss is only enabled in production.
 
