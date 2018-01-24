@@ -65,7 +65,7 @@ For all configuration options, refer to the [https://github.com/FullHuman/purgec
 | Option       | Type | Default | Description |
 |--------------|------|---------|-----|
 | `enabled`    | Boolean | `true` in production | Determines whether css should be purged or not |
-| `globs`      | Array | Matches all files in `app/` and `resources/` | Determines which files should be scanned for selectors |
+| `globs`      | Array | Matches all php files in `app/` and all files with extensions in the `extensions` option in `resources/` | Determines which files should be scanned for selectors |
 | `extensions` | Array| html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors |
 
 Note that if you override `extensions`, the defaults will be lost! Your custom globs are merged with the default globs. If you need to fully replace the globs, use the underlying `paths` option instead.
