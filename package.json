@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/spatie/laravel-mix-purgecss",
   "scripts": {
-    "prettier": "prettier --write \"**/*.js\""
+    "format": "prettier --write \"**/*.js\""
   },
   "dependencies": {
     "glob-all": "^3.0.0",
