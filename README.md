@@ -70,10 +70,7 @@ For all configuration options, refer to the [https://github.com/FullHuman/purgec
 
 Note that if you override `globs` or `extensions`, the defaults will be lost!
 
-<details>
-<summary>
-    Example custom configuration
-</summary>
+### Example custom configuration
 
 ```js
 let mix = require('laravel-mix');
@@ -98,7 +95,6 @@ mix
         whitelistPatterns: [/language/, /hljs/],
     });
 ```
-</details>
 
 ### Changelog
 
