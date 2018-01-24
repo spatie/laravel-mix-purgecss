@@ -8,7 +8,7 @@
 
 ```js
 let mix = require('laravel-mix');
-require('laravel-mix-purgecss')();
+require('laravel-mix-purgecss');
 
 // ...
 
@@ -37,7 +37,7 @@ Then install the extension by requiring the module in your Mix configuration.
 
 ```js
 let mix = require('laravel-mix');
-require('laravel-mix-purgecss')();
+require('laravel-mix-purgecss');
 
 // ...
 ```
@@ -76,7 +76,7 @@ Note that if you override `extensions`, the defaults will be lost! Your custom g
 
 ```js
 let mix = require('laravel-mix');
-let purceCss = require('laravel-mix-purgecss');
+let purgeCss = require('laravel-mix-purgecss');
 
 mix
     .js('resources/assets/js/app.js', 'public/js')
