@@ -52,6 +52,8 @@ mix.purgeCss = (options = {}) => {
             plugins: [createPlugin(options)],
         });
     }
+
+    return mix;
 };
 
 module.exports.defaults = defaults;
