@@ -48,7 +48,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .purgeCss();
 ```
 
-Custom options can be passed when when calling Purgecss if necessary.
+Custom options can be passed when calling Purgecss if necessary.
 
 ```js
 mix.js('resources/assets/js/app.js', 'public/js')
