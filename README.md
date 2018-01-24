@@ -86,9 +86,9 @@ mix
     .purgeCss({
         enabled: true,
 
+        // Globs are merged with the default globs, so there's generally no need
+        // to worry about files in `app` and `resources`.
         globs: [
-            path.resolve(__dirname, './app/**/*'),
-            path.resolve(__dirname, './resources/**/*'),
             path.join(__dirname, 'node_modules/simplemde/**/*.js'),
         ],
 
