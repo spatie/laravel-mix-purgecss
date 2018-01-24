@@ -62,11 +62,11 @@ The default configuration should be good enough for an average Laravel project. 
 
 For all configuration options, refer to the [https://github.com/FullHuman/purgecss](purgecss) and [https://github.com/FullHuman/purgecss-webpack-plugin](purgecss-webpack-plugin) docs. This Mix extension adds three more configuration options for your convenience.
 
-| Option       | Default | Description |
-|--------------|---------|-----|
-| `enabled`    | `true` in production | Determines whether css should be purged or not |
-| `globs`      | Matches all files in `app/` and `resources/` | Determines which files should be scanned for selectors |
-| `extensions` | html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors |
+| Option       | Type | Default | Description |
+|--------------|------|---------|-----|
+| `enabled`    | Boolean | `true` in production | Determines whether css should be purged or not |
+| `globs`      | Array | Matches all files in `app/` and `resources/` | Determines which files should be scanned for selectors |
+| `extensions` | Array| html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors |
 
 Note that if you override `extensions`, the defaults will be lost! Your custom globs are merged with the default globs. If you need to fully replace the globs, use the underlying `paths` option instead.
 
