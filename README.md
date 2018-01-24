@@ -62,7 +62,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 The default configuration should be good enough for an average Laravel project. In short, all html, js, php & vue files in the app and resources folders will be scanned for selectors. Purgecss is only enabled in production.
 
-For all configuration options, refer to the [https://github.com/FullHuman/purgecss](purgecss) and [https://github.com/FullHuman/purgecss-webpack-plugin](purgecss-webpack-plugin) docs. This Mix extension adds three more configuration options for your convenience.
+For all configuration options, refer to the [purgecss](https://github.com/FullHuman/purgecss) and [purgecss-webpack-plugin](https://github.com/FullHuman/purgecss-webpack-plugin) docs. This Mix extension adds three more configuration options for your convenience.
 
 | Option       | Type | Default | Description |
 |--------------|------|---------|-----|
