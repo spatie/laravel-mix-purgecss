@@ -7,8 +7,13 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 const defaults = {
     enabled: mix.inProduction(),
     globs: [
-        path.resolve(__dirname, '../../../app/**/*'),
-        path.resolve(__dirname, '../../../resources/**/*'),
+        path.resolve(__dirname, '../../../app/**/*.php'),
+        path.resolve(__dirname, '../../../resources/**/*.js'),
+        path.resolve(__dirname, '../../../resources/**/*.jsx'),
+        path.resolve(__dirname, '../../../resources/**/*.ts'),
+        path.resolve(__dirname, '../../../resources/**/*.tsx'),
+        path.resolve(__dirname, '../../../resources/**/*.php'),
+        path.resolve(__dirname, '../../../resources/**/*.vue'),
     ],
     extensions: ['html', 'js', 'jsx', 'ts', 'tsx', 'php', 'vue'],
 };
@@ -35,7 +40,12 @@ function withoutCustomOptions(options) {
 }
 
 mix.purgeCss = (options = {}) => {
-    options = { ...defaults, ...options };
+    // We don't want to overwrite the globs so the user can append instead of
+    // replace. If it needs to be replaced instead, use the underlying `paths`
+    // option.
+    const globs = defaults.globs.concat(options.globs || []);
+
+    options = { ...defaults, ...options, globs };
 
     if (options.enabled) {
         mix.webpackConfig({
