@@ -68,7 +68,7 @@ For all configuration options, refer to the [https://github.com/FullHuman/purgec
 | `globs`      | Matches all files in `app/` and `resources/` | Determines which files should be scanned for selectors |
 | `extensions` | html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors |
 
-Note that if you override `extensions`, the defaults will be lost! Globs are merged with the default globs. If you need to fully replace the globs, use the underlying `paths` option instead.
+Note that if you override `extensions`, the defaults will be lost! Your custom globs are merged with the default globs. If you need to fully replace the globs, use the underlying `paths` option instead.
 
 ### Example custom configuration
 
@@ -83,7 +83,7 @@ mix
     .purgeCss({
         enabled: true,
 
-        // Globs are merged with the default globs. If you need to fully replace
+        // Your custom globs are merged with the default globs. If you need to fully replace
         // the globs, use the underlying `paths` option instead.
         globs: [
             path.join(__dirname, 'node_modules/simplemde/**/*.js'),
