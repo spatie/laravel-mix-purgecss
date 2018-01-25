@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-mix-purgecss` will be documented in this file
 
+## 1.0.3 - 2018-01-25
+
+- Add compatibility with Node.js ^6.0
+
 ## 1.0.2 - 2018-01-24
 
 - Fixed an issue with custom `extensions` options
