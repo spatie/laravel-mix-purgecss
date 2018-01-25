@@ -5,20 +5,24 @@ const omit = require('lodash/omit');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 function createPlugin(options) {
-    return new PurgecssPlugin({
-        paths: () => glob.sync(options.globs),
-        extractors: [
+    return new PurgecssPlugin(
+        Object.assign(
             {
-                extractor: class {
-                    static extract(content) {
-                        return content.match(/[A-z0-9-:\/]+/g) || [];
-                    }
-                },
-                extensions: options.extensions,
+                paths: () => glob.sync(options.globs),
+                extractors: [
+                    {
+                        extractor: class {
+                            static extract(content) {
+                                return content.match(/[A-z0-9-:\/]+/g) || [];
+                            }
+                        },
+                        extensions: options.extensions,
+                    },
+                ],
             },
-        ],
-        ...withoutCustomOptions(options),
-    });
+            withoutCustomOptions(options)
+        )
+    );
 }
 
 function createOptions(options) {
