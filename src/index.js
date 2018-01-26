@@ -62,4 +62,6 @@ mix.purgeCss = (options = {}) => {
             plugins: [createPlugin(options)],
         });
     }
+
+    return this;
 };
