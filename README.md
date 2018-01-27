@@ -8,7 +8,7 @@
 
 ```js
 let mix = require('laravel-mix');
-require('laravel-mix-purgecss')();
+require('laravel-mix-purgecss');
 
 // ...
 
@@ -37,7 +37,7 @@ Then install the extension by requiring the module in your Mix configuration.
 
 ```js
 let mix = require('laravel-mix');
-require('laravel-mix-purgecss')();
+require('laravel-mix-purgecss');
 
 // ...
 ```
