@@ -63,5 +63,5 @@ mix.purgeCss = (options = {}) => {
         });
     }
 
-    return this;
+    return mix;
 };
