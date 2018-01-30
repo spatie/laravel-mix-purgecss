@@ -54,7 +54,7 @@ function withoutCustomOptions(options) {
     return omit(options, ['enabled', 'globs', 'extensions']);
 }
 
-mix.purgeCss = function(options = {}) {
+mix.purgeCss = (options = {}) => {
     options = createOptions(options);
 
     if (options.enabled) {
@@ -63,5 +63,5 @@ mix.purgeCss = function(options = {}) {
         });
     }
 
-    return this;
+    return mix;
 };
