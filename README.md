@@ -76,7 +76,7 @@ Note that if you override `extensions`, the defaults will be lost! Your custom g
 
 ```js
 let mix = require('laravel-mix');
-let purgeCss = require('laravel-mix-purgecss');
+require('laravel-mix-purgecss');
 
 mix
     .js('resources/assets/js/app.js', 'public/js')
