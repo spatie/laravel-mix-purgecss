@@ -12,18 +12,11 @@ class purgeCss {
     }
 
     static userOptions(userOptions) {
-        let options = Object.assign({
+        let options = Object.assign(
+            {
                 enabled: Mix.inProduction(),
-                extensions: [
-                    'html',
-                    'js',
-                    'jsx',
-                    'ts',
-                    'tsx',
-                    'php',
-                    'vue',
-                ],
-                globs: []
+                extensions: ['html', 'js', 'jsx', 'ts', 'tsx', 'php', 'vue'],
+                globs: [],
             },
             userOptions
         );
@@ -53,22 +46,32 @@ class purgeCss {
         let glob = require('glob-all');
 
         if (this.options.enabled) {
-            config.plugins.push(new PurgecssPlugin(Object.assign({
-                    paths: () => glob.sync(this.options.globs),
-                    extractors: [{
-                        extractor: class {
-                            static extract(content) {
-                                return content.match(/[A-z0-9-:\/]+/g) || [];
-                            }
+            config.plugins.push(
+                new PurgecssPlugin(
+                    Object.assign(
+                        {
+                            paths: () => glob.sync(this.options.globs),
+                            extractors: [
+                                {
+                                    extractor: class {
+                                        static extract(content) {
+                                            return (
+                                                content.match(
+                                                    /[A-z0-9-:\/]+/g
+                                                ) || []
+                                            );
+                                        }
+                                    },
+                                    extensions: this.options.extensions,
+                                },
+                            ],
                         },
-                        extensions: this.options.extensions
-                    }]
-                },
-                purgeCss.withoutCustomOptions(this.options)
-            )));
+                        purgeCss.withoutCustomOptions(this.options)
+                    )
+                )
+            );
         }
     }
 }
 
 mix.extend('purgeCss', new purgeCss());
-
