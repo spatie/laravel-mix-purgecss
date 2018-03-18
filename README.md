@@ -123,6 +123,7 @@ We publish all received postcards [on our company website](https://spatie.be/en/
 ## Credits
 
 - [Sebastian De Deyne](https://github.com/sebastiandedeyne)
+- [CJMAXiK](https://github.com/cjmaxik)
 - [All Contributors](../../contributors)
 
 ## Support us

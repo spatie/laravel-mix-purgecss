@@ -11,6 +11,9 @@
         "spatie"
     ],
     "author": "Sebastian De Deyne",
+    "contributors": [
+        "CJMAXiK"
+    ],
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/spatie/laravel-mix-purgecss/issues"
