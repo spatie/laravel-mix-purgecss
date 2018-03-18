@@ -22,9 +22,9 @@ class purgeCss {
         );
 
         options.globs.push(
-            path.resolve(__dirname, 'app/**/*.php'),
+            path.resolve(__dirname, '../../../app/**/*.php'),
             ...options.extensions.map(extension =>
-                path.resolve(__dirname, `resources/**/*.${extension}`)
+                path.resolve(__dirname, `../../../resources/**/*.${extension}`)
             )
         );
 
