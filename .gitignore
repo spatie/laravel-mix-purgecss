@@ -1,3 +1,5 @@
 node_modules
 npm-debug.log
 yarn.lock
+example/public
+example/mix-manifest.json
