@@ -1,6 +1,10 @@
-let mix = require('laravel-mix');
+const path = require('path');
+const glob = require('glob-all');
+const mix = require('laravel-mix');
+const { omit } = require('./util');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 
-class purgeCss {
+class PurgeCss {
     name() {
         return 'purgeCss';
     }
@@ -12,9 +16,9 @@ class purgeCss {
     }
 
     static userOptions(userOptions) {
-        let options = Object.assign(
+        const options = Object.assign(
             {
-                enabled: Mix.inProduction(),
+                enabled: mix.inProduction(),
                 extensions: ['html', 'js', 'jsx', 'ts', 'tsx', 'php', 'vue'],
                 globs: [],
             },
@@ -36,15 +40,10 @@ class purgeCss {
     }
 
     static withoutCustomOptions(options) {
-        let omit = require('lodash.omit');
         return omit(options, ['enabled', 'globs', 'extensions']);
     }
 
     webpackConfig(config) {
-        let PurgecssPlugin = require('purgecss-webpack-plugin');
-        let path = require('path');
-        let glob = require('glob-all');
-
         if (this.options.enabled) {
             config.plugins.push(
                 new PurgecssPlugin(
@@ -57,7 +56,7 @@ class purgeCss {
                                         static extract(content) {
                                             return (
                                                 content.match(
-                                                    /[A-z0-9-:\/]+/g
+                                                    /[A-z0-9-:/]+/g
                                                 ) || []
                                             );
                                         }
@@ -74,4 +73,4 @@ class purgeCss {
     }
 }
 
-mix.extend('purgeCss', new purgeCss());
+mix.extend('purgeCss', new PurgeCss());
