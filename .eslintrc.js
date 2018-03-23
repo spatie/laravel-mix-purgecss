@@ -7,4 +7,7 @@ module.exports = {
         node: true,
         jest: true,
     },
+    globals: {
+        Mix: true,
+    },
 };

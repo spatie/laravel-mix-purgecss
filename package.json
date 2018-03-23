@@ -21,7 +21,9 @@
   "homepage": "https://github.com/spatie/laravel-mix-purgecss",
   "scripts": {
     "lint": "eslint src",
-    "format": "prettier --write \"**/*.js\""
+    "format": "prettier --write \"**/*.js\"",
+    "test": "jest",
+    "example": "./build-example.sh"
   },
   "dependencies": {
     "glob-all": "^3.1.0",
@@ -30,11 +32,10 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "jest": "^22.4.3",
-    "laravel-mix": "^2.1.7",
     "prettier": "^1.11.1"
   },
   "peerDependencies": {
-    "laravel-mix": ">=2.1.2"
+    "laravel-mix": "^2.1.2"
   },
   "engines": {
     "node": ">=6.0.0"

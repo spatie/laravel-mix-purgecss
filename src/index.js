@@ -1,75 +1,45 @@
-const path = require('path');
-const glob = require('glob-all');
 const mix = require('laravel-mix');
-const { omit } = require('./util');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
+const createPurgeCssPlugin = require('./createPurgeCssPlugin');
+
+// This is kind of an undocumented Mix function, hope it stays around! Easy to
+// refactor if it'd ever cause an issue.
+const rootPath = Mix.paths.root.bind(Mix.paths);
 
 class PurgeCss {
     name() {
-        return 'purgeCss';
+        return ['purgeCss', 'purgecss'];
     }
 
     dependencies() {
         this.requiresReload = true;
 
-        return ['purgecss-webpack-plugin', 'glob-all', 'lodash.omit'];
+        return ['purgecss-webpack-plugin', 'glob-all'];
     }
 
-    static userOptions(userOptions) {
-        const options = Object.assign(
+    register(options = {}) {
+        this.options = Object.assign(
             {
                 enabled: mix.inProduction(),
                 extensions: ['html', 'js', 'jsx', 'ts', 'tsx', 'php', 'vue'],
                 globs: [],
             },
-            userOptions
+            options
         );
 
-        options.globs.push(
-            path.resolve(__dirname, '../../../app/**/*.php'),
-            ...options.extensions.map(extension =>
-                path.resolve(__dirname, `../../../resources/**/*.${extension}`)
-            )
+        this.options.globs.push(
+            rootPath('app/**/*.php'),
+            ...this.options.extensions.map(extension => rootPath(`resources/**/*.${extension}`))
         );
-
-        return options;
-    }
-
-    register(userOptions = {}) {
-        this.options = purgeCss.userOptions(userOptions);
-    }
-
-    static withoutCustomOptions(options) {
-        return omit(options, ['enabled', 'globs', 'extensions']);
     }
 
     webpackConfig(config) {
-        if (this.options.enabled) {
-            config.plugins.push(
-                new PurgecssPlugin(
-                    Object.assign(
-                        {
-                            paths: () => glob.sync(this.options.globs),
-                            extractors: [
-                                {
-                                    extractor: class {
-                                        static extract(content) {
-                                            return (
-                                                content.match(
-                                                    /[A-z0-9-:/]+/g
-                                                ) || []
-                                            );
-                                        }
-                                    },
-                                    extensions: this.options.extensions,
-                                },
-                            ],
-                        },
-                        purgeCss.withoutCustomOptions(this.options)
-                    )
-                )
-            );
+        if (!this.options.enabled) {
+            return;
         }
+
+        const purgeCssPlugin = createPurgeCssPlugin(this.options);
+
+        config.plugins.push(purgeCssPlugin);
     }
 }
 
