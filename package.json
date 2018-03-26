@@ -35,7 +35,7 @@
     "prettier": "^1.11.1"
   },
   "peerDependencies": {
-    "laravel-mix": "^2.1.2"
+    "laravel-mix": "^2.1.0"
   },
   "engines": {
     "node": ">=6.0.0"
