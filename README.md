@@ -21,7 +21,7 @@ The Purgecss config is inspired by [Jonathan Reinink's config](https://twitter.c
 
 ## Installation
 
-Before you get started, make sure you're at using `laravel-mix` version 2.1 or higher.
+Before you get started, make sure you're using `laravel-mix` version 2.1 or higher.
 
 > For version 2.0.* of `laravel-mix` please use version 1.* of this wrapper.
 > This wrapper is not compatible with `laravel-mix` version 1.*.
