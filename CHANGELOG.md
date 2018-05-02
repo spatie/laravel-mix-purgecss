@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-mix-purgecss` will be documented in this file
 
+## 2.1.0 - 2018-05-02
+- Add a set of commonly used `whitelistPatterns` by default
+
 ## 2.0.0 - 2018-03-18
 - Reworked to Laravel Mix 2.1's component-based approach
 

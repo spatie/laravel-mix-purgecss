@@ -5,5 +5,9 @@ exports[`it purges css 1`] = `
   background-color: blue;
 }
 
+.is-active {
+  background-color: green;
+}
+
 "
 `;

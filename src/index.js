@@ -22,6 +22,7 @@ class PurgeCss {
                 enabled: mix.inProduction(),
                 extensions: ['html', 'js', 'jsx', 'ts', 'tsx', 'php', 'vue'],
                 globs: [],
+                whitelistPatterns: [],
             },
             options
         );
@@ -30,6 +31,8 @@ class PurgeCss {
             rootPath('app/**/*.php'),
             ...this.options.extensions.map(extension => rootPath(`resources/**/*.${extension}`))
         );
+
+        this.options.whitelistPatterns.push(/-active$/, /-enter$/, /-leave-to$/);
     }
 
     webpackConfig(config) {
