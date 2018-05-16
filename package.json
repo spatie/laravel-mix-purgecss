@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-purgecss",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Purgecss wrapper for Laravel Mix",
   "main": "src/index.js",
   "repository": {
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "glob-all": "^3.1.0",
-    "purgecss-webpack-plugin": "^0.19.0"
+    "purgecss-webpack-plugin": "^0.22"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

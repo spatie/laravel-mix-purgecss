@@ -98,6 +98,8 @@ mix
 
         // Other options are passed through to Purgecss
         whitelistPatterns: [/language/, /hljs/],
+
+        whitelistPatternsChildren: [/^markdown$/],
     });
 ```
 
