@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-mix-purgecss` will be documented in this file
 
+## 2.1.2 - 2018-05-18
+- Upgrade Purgecss package version
+
 ## 2.1.0 - 2018-05-02
 - Add a set of commonly used `whitelistPatterns` by default
 
