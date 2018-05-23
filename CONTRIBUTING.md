@@ -15,10 +15,10 @@ Laravel-mix-purgecss uses [SemVer](http://semver.org/) for versioning.
 1. Fork [the repository](https://github.com/FullHuman/purgecss) and create your branch from `master`.
 2. If you've added code that should be tested, add tests!
 3. If you've changed APIs, update the documentation.
-4. Ensure the test suite passes (`npm test`).
-5. Format your code with [prettier](https://github.com/prettier/prettier) (`npm run format`).
-6. Make sure your code lints (`npm run lint`).
-7. Run the example (`npm run example`).
+4. Run the example (`npm run example`).
+5. Ensure the test suite passes (`npm test`).
+6. Format your code with [prettier](https://github.com/prettier/prettier) (`npm run format`).
+7. Make sure your code lints (`npm run lint`).
 
 ### License
 
