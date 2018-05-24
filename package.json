@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "glob-all": "^3.1.0",
-    "purgecss-webpack-plugin": "^0.22"
+    "purgecss-webpack-plugin": "^0.23.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
