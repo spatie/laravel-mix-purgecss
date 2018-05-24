@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const { flatMap } = require('./util');
 const createPurgeCssPlugin = require('./createPurgeCssPlugin');
 
 // This is kind of an undocumented Mix function, hope it stays around! Easy to
@@ -20,6 +21,7 @@ class PurgeCss {
         this.options = Object.assign(
             {
                 enabled: mix.inProduction(),
+                folders: ['resources'],
                 extensions: ['html', 'js', 'jsx', 'ts', 'tsx', 'php', 'vue'],
                 globs: [],
                 whitelistPatterns: [],
@@ -29,7 +31,11 @@ class PurgeCss {
 
         this.options.globs.push(
             rootPath('app/**/*.php'),
-            ...this.options.extensions.map(extension => rootPath(`resources/**/*.${extension}`))
+            ...flatMap(this.options.folders, folder => {
+                return this.options.extensions.map(extension =>
+                    rootPath(`${folder}/**/*.${extension}`)
+                );
+            })
         );
 
         this.options.whitelistPatterns.push(/-active$/, /-enter$/, /-leave-to$/);

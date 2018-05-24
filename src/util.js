@@ -10,4 +10,8 @@ module.exports = {
 
         return omitted;
     },
+
+    flatMap(array, callback) {
+        return Array.prototype.concat.apply([], array.map(callback));
+    },
 };
