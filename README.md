@@ -71,6 +71,7 @@ For all configuration options, refer to the [purgecss](https://github.com/FullHu
 |--------------|------|---------|-----|
 | `enabled`    | Boolean | `true` in production | Determines whether css should be purged or not |
 | `globs`      | Array | Matches all php files in `app/` and all files with extensions in the `extensions` option in `resources/` | Determines which files should be scanned for selectors |
+| `folders` | Array| resources | Determines which folders should be scanned for selectors |
 | `extensions` | Array| html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors |
 
 Note that if you override `extensions`, the defaults will be lost! Your custom globs are merged with the default globs. If you need to fully replace the globs, use the underlying `paths` option instead.
@@ -101,6 +102,18 @@ mix
 
         whitelistPatternsChildren: [/^markdown$/],
     });
+```
+
+### Usage outside of Laravel
+
+Using Laravel Mix outside of a Laravel project? We've got you covered! Everything still works, but you might want to update the folders that are being scanned for selectors.
+
+Laravel stores views and other assets in the `resources` folder, so that's where we assume you're keeping things. If you're in a different environment, like [Jigsaw](https://jigsaw.tighten.co/docs/installation/), you'll need to update the `folders` option.
+
+```
+mix.purgeCss({
+    folders: ['source'],
+});
 ```
 
 ### Changelog
