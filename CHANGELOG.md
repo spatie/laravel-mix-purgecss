@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-mix-purgecss` will be documented in this file
 
+## 2.2.0 - 2018-05-25
+- Add `folders` option
+
 ## 2.1.3 - 2018-05-24
 - Upgrade Purgecss package version
 
