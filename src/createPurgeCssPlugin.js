@@ -8,11 +8,15 @@ const extractAllSelectorLikeStrings = class {
     }
 };
 
-module.exports = options =>
-    new PurgecssPlugin(
+module.exports = options => {
+    const globs = glob
+        .sync(options.globs, { mark: true })
+        .filter(f => !/\/$/.test(f));
+
+    return new PurgecssPlugin(
         Object.assign(
             {
-                paths: () => glob.sync(options.globs),
+                paths: () => globs,
                 extractors: [
                     {
                         extractor: extractAllSelectorLikeStrings,
@@ -23,3 +27,4 @@ module.exports = options =>
             omit(options, ['enabled', 'globs', 'extensions'])
         )
     );
+}
