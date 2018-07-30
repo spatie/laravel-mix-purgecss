@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-mix-purgecss` will be documented in this file
 
+## 2.2.1 - 2018-07-30
+- Ignore folders in globs
+
 ## 2.2.0 - 2018-05-25
 - Add `folders` option
 
