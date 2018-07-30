@@ -11,7 +11,7 @@ const extractAllSelectorLikeStrings = class {
 module.exports = options => {
     const globs = glob
         .sync(options.globs, { mark: true })
-        .filter(function(f) { return !/\/$/.test(f); });
+        .filter(f => !/\/$/.test(f));
 
     return new PurgecssPlugin(
         Object.assign(
