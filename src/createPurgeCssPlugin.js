@@ -4,7 +4,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const extractAllSelectorLikeStrings = class {
     static extract(content) {
-        return content.match(/[a-zA-Z0-9-:/]+/g) || [];
+        return content.match(/[a-zA-Z0-9-:_/]+/g) || [];
     }
 };
 
