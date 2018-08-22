@@ -80,6 +80,8 @@ Note that if you override `extensions`, the defaults will be lost! Your custom g
 
 ```js
 let mix = require('laravel-mix');
+const glob = require('glob-all');
+
 require('laravel-mix-purgecss');
 
 mix
@@ -91,9 +93,9 @@ mix
 
         // Your custom globs are merged with the default globs. If you need to fully replace
         // the globs, use the underlying `paths` option instead.
-        globs: [
+        paths: () => glob.sync([
             path.join(__dirname, 'node_modules/simplemde/**/*.js'),
-        ],
+        ]),
 
         extensions: ['html', 'js', 'php', 'vue'],
 
