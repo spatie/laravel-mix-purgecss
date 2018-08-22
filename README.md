@@ -72,11 +72,40 @@ For all configuration options, refer to the [purgecss](https://github.com/FullHu
 | `enabled`    | Boolean | `true` in production | Determines whether css should be purged or not |
 | `globs`      | Array | Matches all php files in `app/` and all files with extensions in the `extensions` option in `resources/` | Determines which files should be scanned for selectors |
 | `folders` | Array| resources | Determines which folders should be scanned for selectors |
-| `extensions` | Array| html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors |
-
-Note that if you override `extensions`, the defaults will be lost! Your custom globs are merged with the default globs. If you need to fully replace the globs, use the underlying `paths` option instead.
+| `extensions` | Array| html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors. If you override `extensions`, the defaults will be lost. |
 
 ### Example custom configuration
+
+```js
+let mix = require('laravel-mix');
+
+require('laravel-mix-purgecss');
+
+mix
+    .js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app.scss', 'public/css')
+
+    .purgeCss({
+        enabled: true,
+
+        // Your custom globs are merged with the default globs. If you need to
+        // fully replace the globs, use the underlying `paths` option instead.
+        globs: () => [
+            path.join(__dirname, 'node_modules/simplemde/**/*.js'),
+        ],
+
+        extensions: ['html', 'js', 'php', 'vue'],
+
+        // Other options are passed through to Purgecss
+        whitelistPatterns: [/language/, /hljs/],
+
+        whitelistPatternsChildren: [/^markdown$/],
+    });
+```
+
+### Overriding globs
+
+Your custom globs are merged with the default globs. If you need to fully replace the globs, use the underlying `paths` option instead.
 
 ```js
 let mix = require('laravel-mix');
@@ -89,20 +118,11 @@ mix
     .sass('resources/assets/sass/app.scss', 'public/css')
 
     .purgeCss({
-        enabled: true,
-
-        // Your custom globs are merged with the default globs. If you need to fully replace
-        // the globs, use the underlying `paths` option instead.
+        // Will *only* look for views and simplemde classes
         paths: () => glob.sync([
+            path.join(__dirname, 'resources/**/*.blade.php'),
             path.join(__dirname, 'node_modules/simplemde/**/*.js'),
         ]),
-
-        extensions: ['html', 'js', 'php', 'vue'],
-
-        // Other options are passed through to Purgecss
-        whitelistPatterns: [/language/, /hljs/],
-
-        whitelistPatternsChildren: [/^markdown$/],
     });
 ```
 
