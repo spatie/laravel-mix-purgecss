@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-mix-purgecss` will be documented in this file
 
+## 3.0.0 - 2018-10-01
+- Upgrade Purgecss to v1.3.0
+
 ## 2.2.3 - 2018-08-02
 - Fix match regex
 
