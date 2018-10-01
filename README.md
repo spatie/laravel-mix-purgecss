@@ -12,8 +12,8 @@ require('laravel-mix-purgecss');
 
 // ...
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css')
    .purgeCss();
 ```
 
@@ -48,16 +48,16 @@ require('laravel-mix-purgecss');
 Purgecss can then be enabled by calling `.purgeCss()` in your Mix chain.
 
 ```js
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css')
    .purgeCss();
 ```
 
 Custom options can be passed when calling Purgecss if necessary.
 
 ```js
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css')
    .purgeCss({ /* My options */ });
 ```
 
@@ -82,8 +82,8 @@ let mix = require('laravel-mix');
 require('laravel-mix-purgecss');
 
 mix
-    .js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
+    .js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
 
     .purgeCss({
         enabled: true,
@@ -114,8 +114,8 @@ const glob = require('glob-all');
 require('laravel-mix-purgecss');
 
 mix
-    .js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
+    .js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
 
     .purgeCss({
         // Will *only* look for views and simplemde classes
