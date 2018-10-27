@@ -132,7 +132,7 @@ Using Laravel Mix outside of a Laravel project? We've got you covered! Everythin
 
 Laravel stores views and other assets in the `resources` folder, so that's where we assume you're keeping things. If you're in a different environment, like [Jigsaw](https://jigsaw.tighten.co/docs/installation/), you'll need to update the `folders` option.
 
-```
+```js
 mix.purgeCss({
     folders: ['source'],
 });
