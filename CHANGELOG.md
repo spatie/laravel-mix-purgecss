@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-mix-purgecss` will be documented in this file
 
+## 4.0.0 - 2018-12-20
+- Laravel Mix 4.0
+
 ## 3.0.0 - 2018-10-01
 - Upgrade Purgecss to v1.3.0
 
