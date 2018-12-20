@@ -5,7 +5,7 @@
     },
     "dependencies": {
         "cross-env": "^5.1.4",
-        "laravel-mix": "^2.1.11",
+        "laravel-mix": "^4.0.0",
         "laravel-mix-purgecss": "file:.."
     }
 }
