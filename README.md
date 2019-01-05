@@ -74,6 +74,7 @@ For all configuration options, refer to the [purgecss](https://github.com/FullHu
 | `folders` | Array| resources | Determines which folders should be scanned for selectors |
 | `extensions` | Array| html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors. If you override `extensions`, the defaults will be lost. |
 | `extractorPattern` | String | `/[a-zA-Z0-9-:_/]+/g` | Regex pattern used to match classes found in the given files. |
+| `extractors` | Array | Single extractor matching above default pattern. | An array of extrator objects. See [Purgecss docs](https://www.purgecss.com/extractors) for more details. |
 
 ### Example custom configuration
 
