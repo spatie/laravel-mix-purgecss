@@ -73,6 +73,7 @@ For all configuration options, refer to the [purgecss](https://github.com/FullHu
 | `globs`      | Array | Matches all php files in `app/` and all files with extensions in the `extensions` option in `resources/` | Determines which files should be scanned for selectors |
 | `folders` | Array| resources | Determines which folders should be scanned for selectors |
 | `extensions` | Array| html, js, jsx, ts, tsx, php, vue | Determines which file types should be scanned for selectors. If you override `extensions`, the defaults will be lost. |
+| `extractorPattern` | String | `/[a-zA-Z0-9-:_/]+/g` | Regex pattern used to match classes found in the given files. |
 
 ### Example custom configuration
 
