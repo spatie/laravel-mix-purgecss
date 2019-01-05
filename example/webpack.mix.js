@@ -1,6 +1,7 @@
 const mix = require('laravel-mix');
 require('laravel-mix-purgecss');
 
-mix.sass('resources/sass/app.scss', 'public/css').purgeCss({
-    enabled: true,
-});
+mix.postCss('resources/css/app.css', 'public/css')
+  .purgeCss({
+      enabled: true,
+  });
