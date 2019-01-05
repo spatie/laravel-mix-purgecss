@@ -164,6 +164,7 @@ We publish all received postcards [on our company website](https://spatie.be/en/
 
 - [Sebastian De Deyne](https://github.com/sebastiandedeyne)
 - [CJMAXiK](https://github.com/cjmaxik)
+- [Aryeh Raber](https://github.com/aryehraber)
 - [All Contributors](../../contributors)
 
 ## Support us
