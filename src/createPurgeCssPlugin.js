@@ -7,7 +7,7 @@ module.exports = options => {
         .sync(options.globs, { mark: true })
         .filter(f => !/\/$/.test(f));
 
-    const pattern = options.extractPattern || /[a-zA-Z0-9-:_/]+/g
+    const pattern = options.extractorPattern || /[a-zA-Z0-9-:_/]+/g
 
     return new PurgecssPlugin(
         Object.assign(
