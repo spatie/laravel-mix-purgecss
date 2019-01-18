@@ -2,12 +2,11 @@
 
 exports[`it purges css 1`] = `
 ".bg-blue {
-  background-color: blue;
+    background-color: blue;
 }
 
 .is-active {
-  background-color: green;
+    background-color: green;
 }
-
 "
 `;
