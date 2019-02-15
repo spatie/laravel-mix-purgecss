@@ -7,7 +7,7 @@
 [Purgecss](https://www.purgecss.com/) doesn't require too much work to set up, but there's some boilerplate involved. This package adds a `purgeCss` method to Laravel Mix, which installs Purgecss for you with a set of sensible defaults. Zero configuration for your average Laravel project!
 
 ```js
-let mix = require('laravel-mix');
+const mix = require('laravel-mix');
 require('laravel-mix-purgecss');
 
 // ...
@@ -39,7 +39,7 @@ npm install laravel-mix-purgecss
 Then install the extension by requiring the module in your Mix configuration.
 
 ```js
-let mix = require('laravel-mix');
+const mix = require('laravel-mix');
 require('laravel-mix-purgecss');
 
 // ...
@@ -78,7 +78,7 @@ For all configuration options, refer to the [purgecss](https://github.com/FullHu
 ### Example custom configuration
 
 ```js
-let mix = require('laravel-mix');
+const mix = require('laravel-mix');
 
 require('laravel-mix-purgecss');
 
@@ -109,7 +109,7 @@ mix
 Your custom globs are merged with the default globs. If you need to fully replace the globs, use the underlying `paths` option instead.
 
 ```js
-let mix = require('laravel-mix');
+const mix = require('laravel-mix');
 const glob = require('glob-all');
 
 require('laravel-mix-purgecss');
