@@ -29,11 +29,11 @@ Before you get started, make sure you're using `laravel-mix` version 2.1 or high
 You can install the package with yarn or npm:
 
 ```bash
-yarn add laravel-mix-purgecss
+yarn add laravel-mix-purgecss --dev
 ```
 
 ```bash
-npm install laravel-mix-purgecss
+npm install laravel-mix-purgecss --save-dev
 ```
 
 Then install the extension by requiring the module in your Mix configuration.
