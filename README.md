@@ -91,7 +91,7 @@ mix
 
         // Your custom globs are merged with the default globs. If you need to
         // fully replace the globs, use the underlying `paths` option instead.
-        globs: () => [
+        globs: [
             path.join(__dirname, 'node_modules/simplemde/**/*.js'),
         ],
 
