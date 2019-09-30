@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-mix-purgecss` will be documented in this file
 
+## 4.2.0 - 2019-09-30
+- Laravel Mix 5.0
+
 ## 4.1.0 - 2019-01-18
 - Add `extractorPattern` config option
 
