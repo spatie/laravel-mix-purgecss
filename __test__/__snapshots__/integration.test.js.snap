@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`it purges css 1`] = `
-".bg-blue{background-color:#00f}.is-active{background-color:green}"
-`;
+exports[`it purges css 1`] = `".bg-blue{background-color:#00f}.is-active{background-color:green}"`;
