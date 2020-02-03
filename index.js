@@ -9,10 +9,16 @@ mix.extend(
         }
 
         register(config = {}) {
+            this.enabled = config.enabled || mix.inProduction();
+
             this.config = Object.assign({}, defaultConfig, config);
         }
 
         boot() {
+            if (!this.enabled) {
+                return;
+            }
+
             mix.options({
                 postCss: [require('@fullhuman/postcss-purgecss')(this.config)]
             });
