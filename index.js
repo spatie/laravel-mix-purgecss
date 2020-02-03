@@ -9,7 +9,8 @@ mix.extend(
         }
 
         register(config = {}) {
-            this.enabled = config.enabled || mix.inProduction();
+            this.enabled =
+                'enabled' in config ? config.enabled : mix.inProduction();
 
             this.config = Object.assign({}, defaultConfig, config);
         }
