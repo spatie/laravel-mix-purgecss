@@ -1,3 +1,5 @@
 <div class="bg-blue">
-    Welcome!
+    <div class="p-2.5">
+        Welcome!
+    </div>
 </div>
