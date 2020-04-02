@@ -9,7 +9,8 @@ module.exports = {
         rootPath('resources/**/*.ts'),
         rootPath('resources/**/*.tsx'),
         rootPath('resources/**/*.php'),
-        rootPath('resources/**/*.vue')
+        rootPath('resources/**/*.vue'),
+        rootPath('resources/**/*.twig')
     ],
     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
     whitelistPatterns: [/-active$/, /-enter$/, /-leave-to$/]
