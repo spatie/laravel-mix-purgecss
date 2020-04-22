@@ -9,3 +9,7 @@
 .is-active {
     background-color: green;
 }
+
+.p-2\.5 {
+    padding: 2.5rem;
+}
