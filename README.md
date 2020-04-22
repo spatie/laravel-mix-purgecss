@@ -48,7 +48,17 @@ mix.js('resources/js/app.js', 'public/js')
    .purgeCss();
 ```
 
-Custom options can be passed when calling PurgeCSS if necessary. Visit PurgeCSS' configuration docs to learn more about the available options.
+By default, PurgeCSS only works when building assets for production. You can override this behaviour by specifying the `enabled` option.
+
+```js
+mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css')
+   .purgeCss({
+       enabled: true,
+   });
+```
+
+Custom options can be passed when calling PurgeCSS if necessary. Visit PurgeCSS' [docs](https://purgecss.com/configuration.html#options) to learn more about the available options.
 
 ```js
 mix.js('resources/js/app.js', 'public/js')
