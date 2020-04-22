@@ -4,7 +4,15 @@
 [![Latest Version on NPM](https://img.shields.io/npm/v/laravel-mix-purgecss.svg?style=flat-square)](https://npmjs.com/package/laravel-mix-purgecss)
 [![npm](https://img.shields.io/npm/dt/laravel-mix-purgecss.svg?style=flat-square)](https://www.npmjs.com/package/laravel-mix-purgecss)
 
-> **WARNING!** This is the `master` branch of `laravel-mix-purgecss`. The latest stable release is version [4.1.0](https://github.com/spatie/laravel-mix-purgecss/tree/4.1.0).
+---
+
+🚨🚨🚨
+
+**WARNING!** This is the `master` branch of `laravel-mix-purgecss`. The latest stable release is version [4.1.0](https://github.com/spatie/laravel-mix-purgecss/tree/4.1.0).
+
+🚨🚨🚨
+
+---
 
 This package adds a `purgeCss` option to Laravel Mix, which installs PurgeCSS for you with a set of sensible defaults for Laravel applications.
 
