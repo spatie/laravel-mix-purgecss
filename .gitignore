@@ -4,3 +4,4 @@ yarn-error.log
 /yarn.lock
 example/public
 example/mix-manifest.json
+example/yarn.lock
