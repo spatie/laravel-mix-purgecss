@@ -21,13 +21,11 @@ mix.extend(
                 return;
             }
 
-            console.log(this.config);
-
             mix.options({
                 postCss: [
                     ...mix.config.postCss,
-                    require("@fullhuman/postcss-purgecss")(this.config)
-                ]
+                    require("@fullhuman/postcss-purgecss")(this.config),
+                ],
             });
         }
     })()
