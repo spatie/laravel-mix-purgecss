@@ -22,14 +22,14 @@
     "scripts": {
         "format": "prettier --write \"**/*.js\"",
         "test": "jest",
-        "example": "./build-example.sh"
+        "build-example": "./build-example.sh"
     },
     "dependencies": {
-        "@fullhuman/postcss-purgecss": "^2.0.5"
+        "@fullhuman/postcss-purgecss": "^2.1.2"
     },
     "devDependencies": {
-        "jest": "^25.1.0",
-        "prettier": "^1.19.1"
+        "jest": "^25.4.0",
+        "prettier": "^2.0.5"
     },
     "peerDependencies": {
         "laravel-mix": "^5.0.1"

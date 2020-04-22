@@ -4,6 +4,8 @@
 [![Latest Version on NPM](https://img.shields.io/npm/v/laravel-mix-purgecss.svg?style=flat-square)](https://npmjs.com/package/laravel-mix-purgecss)
 [![npm](https://img.shields.io/npm/dt/laravel-mix-purgecss.svg?style=flat-square)](https://www.npmjs.com/package/laravel-mix-purgecss)
 
+> **WARNING!** This is the `master` branch of `laravel-mix-purgecss`. The latest stable release is version [4.1.0](https://github.com/spatie/laravel-mix-purgecss/tree/4.1.0).
+
 This package adds a `purgeCss` option to Laravel Mix, which installs PurgeCSS for you with a set of sensible defaults for Laravel applications.
 
 ```js
@@ -58,15 +60,33 @@ mix.js('resources/js/app.js', 'public/js')
    });
 ```
 
+## PurgeCSS customization
+
+Our [`defaultConfig`](https://github.com/spatie/laravel-mix-purgecss/blob/master/src/defaultConfig.js) file contains a set of sensible defaults for Laravel applications.
+
 Custom options can be passed when calling PurgeCSS if necessary. Visit PurgeCSS' [docs](https://purgecss.com/configuration.html#options) to learn more about the available options.
 
 ```js
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
-   .purgeCss({ /* My options */ });
+   .purgeCss({
+       content: [path.join(__dirname, 'vendor/spatie/menu/**/*.php')],
+       whitelistPatterns: [/hljs/],
+   });
 ```
 
-Our [`defaultConfig`](https://github.com/spatie/laravel-mix-purgecss/blob/master/defaultConfig.js) file contains a set of sensible defaults for Laravel applications.
+Passing options will **override** the package defaults. If you want to **extend** the package defaults, wrap them in an `extend` object.
+
+```js
+mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css')
+   .purgeCss({
+       extend: {
+           content: [path.join(__dirname, 'vendor/spatie/menu/**/*.php')],
+           whitelistPatterns: [/hljs/],
+       },
+   });
+```
 
 ### Changelog
 
