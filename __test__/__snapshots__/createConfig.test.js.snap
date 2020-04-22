@@ -11,6 +11,7 @@ Object {
     "resources/**/*.tsx",
     "resources/**/*.php",
     "resources/**/*.vue",
+    "resources/**/*.twig",
     "vendor/spatie/menu/**/*.php",
   ],
   "defaultExtractor": [Function],
@@ -29,6 +30,7 @@ Object {
     "resources/**/*.tsx",
     "resources/**/*.php",
     "resources/**/*.vue",
+    "resources/**/*.twig",
     "vendor/spatie/menu/**/*.php",
   ],
   "defaultExtractor": [Function],
@@ -65,6 +67,7 @@ Object {
     "resources/**/*.tsx",
     "resources/**/*.php",
     "resources/**/*.vue",
+    "resources/**/*.twig",
   ],
   "defaultExtractor": [Function],
   "whitelistPatterns": Array [
