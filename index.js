@@ -1,11 +1,10 @@
 const mix = require("laravel-mix");
-const createConfig = require("./createConfig");
 
 mix.extend(
     "purgeCss",
     new (class {
         name() {
-            return ["purgeCss", "purgecss"];
+            return ["purgeCss"];
         }
 
         register(config = {}) {
@@ -13,7 +12,7 @@ mix.extend(
 
             this.enabled = enabled !== undefined ? enabled : mix.inProduction();
 
-            this.config = createConfig(purgeCssConfig);
+            this.config = purgeCssConfig;
         }
 
         boot() {
@@ -24,7 +23,7 @@ mix.extend(
             mix.options({
                 postCss: [
                     ...mix.config.postCss,
-                    require("@fullhuman/postcss-purgecss")(this.config),
+                    require("postcss-purgecss-laravel")(this.config),
                 ],
             });
         }

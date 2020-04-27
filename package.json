@@ -1,8 +1,8 @@
 {
     "name": "laravel-mix-purgecss",
-    "version": "5.0.0-rc.2",
-    "description": "Purgecss wrapper for Laravel Mix",
-    "main": "src/index.js",
+    "version": "5.0.0-rc.3",
+    "description": "PurgeCSS wrapper for Laravel Mix",
+    "main": "index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/spatie/laravel-mix-purgecss.git"
@@ -25,7 +25,7 @@
         "build-example": "./build-example.sh"
     },
     "dependencies": {
-        "@fullhuman/postcss-purgecss": "^2.1.2"
+        "postcss-purgecss-laravel": "^0.1.0"
     },
     "devDependencies": {
         "jest": "^25.4.0",
@@ -35,7 +35,7 @@
         "laravel-mix": "^5.0.1"
     },
     "engines": {
-        "node": ">=6.0.0"
+        "node": ">=12.0.0"
     },
     "jest": {
         "testURL": "http://localhost"
