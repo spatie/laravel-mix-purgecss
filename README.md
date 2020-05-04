@@ -4,16 +4,6 @@
 [![Latest Version on NPM](https://img.shields.io/npm/v/laravel-mix-purgecss.svg?style=flat-square)](https://npmjs.com/package/laravel-mix-purgecss)
 [![npm](https://img.shields.io/npm/dt/laravel-mix-purgecss.svg?style=flat-square)](https://www.npmjs.com/package/laravel-mix-purgecss)
 
----
-
-🚨🚨🚨
-
-**WARNING!** This is the `master` branch of `laravel-mix-purgecss`. The latest stable release is version [4.1.0](https://github.com/spatie/laravel-mix-purgecss/tree/4.1.0).
-
-🚨🚨🚨
-
----
-
 This package adds a `purgeCss` option to Laravel Mix, which installs PurgeCSS for you with a set of sensible defaults for Laravel applications.
 
 ```js
@@ -26,6 +16,12 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
    .purgeCss();
 ```
+
+## Support us
+
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -68,9 +64,44 @@ mix.js('resources/js/app.js', 'public/js')
    });
 ```
 
-## PurgeCSS customization
+### Important notice for `mix.postCss` or `postcss.config.js` users
 
-Our [`defaultConfig`](https://github.com/spatie/laravel-mix-purgecss/blob/master/src/defaultConfig.js) file contains a set of sensible defaults for Laravel applications.
+When you use `mix.postCss()` or a seperate `postcss.config.js` file, Mix _overrides_ all other PostCSS plugins, including the PurgeCSS instance added by this plugin.
+
+To work around this issue, either:
+
+1) Include your PostCSS plugins with `mix.options()`
+
+```diff
+  const mix = require('laravel-mix');
+  require('laravel-mix-purgecss');
+
+  mix.js('resources/js/app.js', 'public/js')
+-     .postCss('resources/sass/app.css', 'public/css', [
+-         require('tailwindcss')(),
+-     ])
++     .postCss('resources/sass/app.css', 'public/css')
++     .options({
++         postCss: [require('tailwindcss')]
++     })
+      .purgeCss();
+```
+
+2) Don't use this package, and use [`postcss-purgecss-laravel`](https://github.com/spatie/postcss-purgecss-laravel) instead
+
+```diff
+  const mix = require('laravel-mix');
+- require('laravel-mix-purgecss');
+
+  mix.js('resources/js/app.js', 'public/js')
+      .postCss('resources/sass/app.css', 'public/css', [
+          require('tailwindcss')(),
++         require('postcss-purgecss-laravel')({ /* ... */ }),
+      ])
+      .purgeCss();
+```
+
+## PurgeCSS customization
 
 Custom options can be passed when calling PurgeCSS if necessary. Visit PurgeCSS' [docs](https://purgecss.com/configuration.html#options) to learn more about the available options.
 
@@ -83,7 +114,7 @@ mix.js('resources/js/app.js', 'public/js')
    });
 ```
 
-Passing options will **override** the package defaults. If you want to **extend** the package defaults, wrap them in an `extend` object.
+Passing options will _override_ the package defaults. If you want to _extend_ the package defaults, wrap them in an `extend` object.
 
 ```js
 mix.js('resources/js/app.js', 'public/js')
@@ -94,6 +125,26 @@ mix.js('resources/js/app.js', 'public/js')
            whitelistPatterns: [/hljs/],
        },
    });
+```
+
+This package uses [`postcss-purgecss-laravel`](https://github.com/spatie/postcss-purgecss-laravel) under the hood, which has the following defaults:
+
+```js
+const defaultConfig = {
+    content: [
+        "app/**/*.php",
+        "resources/**/*.html",
+        "resources/**/*.js",
+        "resources/**/*.jsx",
+        "resources/**/*.ts",
+        "resources/**/*.tsx",
+        "resources/**/*.php",
+        "resources/**/*.vue",
+        "resources/**/*.twig",
+    ],
+    defaultExtractor: (content) => content.match(/[\w-/.:]+(?<!:)/g) || [],
+    whitelistPatterns: [/-active$/, /-enter$/, /-leave-to$/, /show$/],
+}
 ```
 
 ### Changelog
