@@ -7,9 +7,7 @@
         "cross-env": "^7.0.0",
         "laravel-mix": "^6.0.0-beta",
         "laravel-mix-purgecss": "file:..",
+        "postcss": "^8.1.2",
         "postcss-loader": "^4.0.4"
-    },
-    "resolutions": {
-        "postcss": "8.1.2"
     }
 }
