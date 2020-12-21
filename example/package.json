@@ -1,11 +1,12 @@
 {
     "private": true,
     "scripts": {
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "dependencies": {
         "cross-env": "^7.0.0",
-        "laravel-mix": "^5.0.1",
-        "laravel-mix-purgecss": "file:.."
+        "laravel-mix": "^6.0.0",
+        "laravel-mix-purgecss": "file:..",
+        "postcss": "^8.1.2"
     }
 }

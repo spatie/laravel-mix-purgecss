@@ -22,7 +22,7 @@ mix.extend(
 
             mix.options({
                 postCss: [
-                    ...mix.config.postCss,
+                    ...global.Config.postCss,
                     require("postcss-purgecss-laravel")(this.config),
                 ],
             });
