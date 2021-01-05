@@ -112,7 +112,7 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
    .purgeCss({
        content: [path.join(__dirname, 'vendor/spatie/menu/**/*.php')],
-       whitelistPatterns: [/hljs/],
+       safelist: [/hljs/],
    });
 ```
 
@@ -124,7 +124,7 @@ mix.js('resources/js/app.js', 'public/js')
    .purgeCss({
        extend: {
            content: [path.join(__dirname, 'vendor/spatie/menu/**/*.php')],
-           whitelistPatterns: [/hljs/],
+           safelist: [/hljs/],
        },
    });
 ```
@@ -145,7 +145,7 @@ const defaultConfig = {
         "resources/**/*.twig",
     ],
     defaultExtractor: (content) => content.match(/[\w-/.:]+(?<!:)/g) || [],
-    whitelistPatterns: [/-active$/, /-enter$/, /-leave-to$/, /show$/],
+    safelist: [/-active$/, /-enter$/, /-leave-to$/, /show$/],
 }
 ```
 
