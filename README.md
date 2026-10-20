@@ -68,7 +68,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 ### Important notice for `mix.postCss` or `postcss.config.js` users
 
-When you use `mix.postCss()` or a seperate `postcss.config.js` file, Mix _overrides_ all other PostCSS plugins, including the PurgeCSS instance added by this plugin.
+When you use `mix.postCss()` or a separate `postcss.config.js` file, Mix _overrides_ all other PostCSS plugins, including the PurgeCSS instance added by this plugin.
 
 To work around this issue, either:
 
